@@ -1,4 +1,5 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
 
 double * linspace(double l, double u, int s){
@@ -7,7 +8,7 @@ double * linspace(double l, double u, int s){
 
     double *v= new double[s+1];
 
-    for(int i=0;i<=5;i++){
+    for(int i=0;i<=s;i++){
         v[i]=l+(i*del_h);
     }
 
@@ -16,13 +17,23 @@ double * linspace(double l, double u, int s){
 
 }
 
+double sigmoid(double x){
+    return 1/(1+exp(-x));
+}
+
+double tan_h(double x){
+    return tanh(x);
+}
+
 
 int main(){
+    int s=500;
+    double *v = linspace(-6,6,s);
 
-    double *v = linspace(0,1,5);
+    freopen("data.txt","w",stdout);
 
-    for(int i=0;i<=5;i++){
-        cout<<v[i]<<" ";
+    for(int i=0;i<=s;i++){
+        cout<<v[i]<<" "<<tan_h(v[i])<<endl;
     }
 
 
