@@ -11,12 +11,10 @@ double Trapezoidal_Integral(double a, double b, int n){
 
 double delta_x= (b-a)/n;
 
-double sum=0;
-sum=f(a);
-double step=a;
+double sum=f(a);
+
 for(int i=1;i<n;i++){
-        step=step+delta_x;
-        sum=sum+2*f(step);
+        sum=sum+2*f(a+i*delta_x);
 }
 sum=sum+f(b);
 
